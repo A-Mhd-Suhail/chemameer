@@ -1,0 +1,176 @@
+.booking {
+  background: var(--ivory-soft);
+}
+.booking__head {
+  margin-bottom: var(--space-6);
+}
+.booking__title {
+  font-size: var(--step-6);
+  margin-block: var(--space-3) var(--space-4);
+}
+.booking__lead {
+  color: var(--muted);
+  max-width: 60ch;
+  font-size: var(--step-1);
+}
+
+.booking__tabs {
+  display: inline-flex;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: var(--space-5);
+}
+.booking__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.7em 1.2em;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: var(--step--1);
+  color: var(--muted);
+  transition: background var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.booking__tab.is-active {
+  background: var(--ink-navy);
+  color: var(--ivory);
+}
+
+.booking__alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  border: 1px solid;
+}
+.booking__alert--error {
+  background: rgba(255, 107, 61, 0.08);
+  border-color: rgba(255, 107, 61, 0.35);
+  color: #b3411c;
+}
+.booking__alert svg { flex-shrink: 0; margin-top: 2px; }
+
+.booking__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.booking__group {
+  border: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+.booking__group legend {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  grid-column: 1 / -1;
+  margin-bottom: var(--space-2);
+  padding: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.field--full { grid-column: 1 / -1; }
+
+.field__label {
+  font-weight: 500;
+  font-size: var(--step--1);
+  color: var(--ink-navy);
+}
+.field__req { color: var(--accent); margin-left: 2px; }
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.85em 1em;
+  background: var(--ivory-soft);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  color: var(--ink-navy);
+  transition: border-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--cobalt);
+  box-shadow: var(--shadow-glow);
+}
+.field input:disabled,
+.field select:disabled {
+  background: var(--ivory-deep);
+  color: var(--muted-2);
+  cursor: not-allowed;
+}
+.field textarea { resize: vertical; min-height: 110px; }
+
+.field__hint { font-size: var(--step--2); color: var(--muted-2); }
+.field__error {
+  font-size: var(--step--2);
+  color: #b3411c;
+  font-weight: 500;
+}
+
+.booking__radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.booking__radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.6em 1em;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: var(--step--1);
+  transition: border-color var(--dur) var(--ease-out), background var(--dur) var(--ease-out);
+}
+.booking__radio:hover { border-color: var(--cobalt); }
+.booking__radio input { accent-color: var(--cobalt); }
+.booking__radio input:checked + span { font-weight: 600; }
+
+.booking__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+.booking__fineprint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: var(--step--2);
+  color: var(--muted);
+  text-align: center;
+}
+.booking__fineprint svg { color: var(--cobalt); flex-shrink: 0; }
+
+@media (max-width: 680px) {
+  .booking__group { grid-template-columns: 1fr; }
+  .booking__tabs { display: flex; width: 100%; }
+  .booking__tab { flex: 1; justify-content: center; }
+}

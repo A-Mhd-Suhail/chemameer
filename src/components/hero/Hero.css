@@ -1,0 +1,165 @@
+.hero {
+  min-height: 100vh;
+  padding-top: calc(var(--header-h) + var(--space-7));
+  padding-bottom: var(--space-9);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(1200px 600px at 80% 0%, rgba(31, 76, 255, 0.18), transparent 60%),
+    radial-gradient(800px 600px at 10% 100%, rgba(42, 212, 255, 0.10), transparent 60%),
+    var(--ink-navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+  flex: 1;
+}
+
+.hero__content { max-width: 620px; }
+
+.hero__title {
+  font-size: var(--step-7);
+  margin-block: var(--space-4) var(--space-5);
+  line-height: 0.98;
+}
+.hero__title .word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-right: 0.18em;
+}
+.hero__title .word {
+  display: inline-block;
+  will-change: transform;
+}
+/* Gradient accent on the last word ("Alive.") — target the wrapper,
+   since each .word is the only child of its .word-wrap. */
+.hero__title .word-wrap:nth-child(4) .word {
+  background: linear-gradient(120deg, var(--cyan) 0%, var(--cobalt-bright) 60%, var(--accent) 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__lead {
+  color: rgba(246, 241, 230, 0.72);
+  font-size: var(--step-1);
+  max-width: 52ch;
+}
+
+.hero__cta {
+  margin-top: var(--space-5);
+  gap: var(--space-3);
+}
+
+.hero__points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-5);
+  margin-top: var(--space-6);
+  color: rgba(246, 241, 230, 0.78);
+  font-size: var(--step--1);
+}
+.hero__points li { display: inline-flex; align-items: center; gap: 0.5em; }
+.hero__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(42, 212, 255, 0.18);
+}
+
+.hero__visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+.hero__svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+.hero__bondring {
+  width: 100%;
+  max-width: 320px;
+}
+
+.hero__marquee {
+  margin-top: var(--space-7);
+  border-block: 1px solid rgba(246, 241, 230, 0.08);
+  padding-block: var(--space-3);
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.hero__marquee-cell {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--space-4);
+  border-right: 1px solid rgba(246, 241, 230, 0.08);
+  min-width: 80px;
+}
+.hero__marquee-num {
+  font-size: 0.6rem;
+  color: rgba(246, 241, 230, 0.4);
+}
+.hero__marquee-sym {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--cyan);
+}
+
+.hero__scrollhint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--step--2);
+  color: rgba(246, 241, 230, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  position: absolute;
+  bottom: var(--space-5);
+  left: var(--gutter);
+}
+.hero__scrollline {
+  width: 64px;
+  height: 1px;
+  background: rgba(246, 241, 230, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.hero__scrollline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cyan);
+  transform: translateX(-100%);
+  animation: hero-scroll-line 2.2s var(--ease-in-out) infinite;
+}
+@keyframes hero-scroll-line {
+  0% { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(100%); }
+}
+
+@media (max-width: 940px) {
+  .hero__inner { grid-template-columns: 1fr; gap: var(--space-6); }
+  .hero__visual { order: -1; min-height: 280px; }
+  .hero__title { font-size: var(--step-6); }
+  .hero__scrollhint { display: none; }
+}
+
+@media (max-width: 540px) {
+  .hero__title { font-size: clamp(2.4rem, 11vw, 3.2rem); }
+  .hero__points { gap: var(--space-3); }
+}

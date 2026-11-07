@@ -1,0 +1,110 @@
+/* =============================================================
+   CHEMAMEER · Design tokens
+   "Where Science Comes Alive."
+   Palette: warm ivory · deep ink navy · electric cobalt · cyan · restrained accent
+   ============================================================= */
+
+:root {
+  /* ---- Brand palette ---- */
+  --ivory: #f6f1e6;
+  --ivory-soft: #fbf7ee;
+  --ivory-deep: #efe7d4;
+
+  --ink-navy: #0a1733;
+  --ink-navy-2: #14224a;
+  --ink-navy-3: #1d2c5a;
+
+  --cobalt: #1f4cff;
+  --cobalt-bright: #3d6bff;
+  --cobalt-deep: #0f2fb0;
+
+  --cyan: #2ad4ff;
+  --cyan-soft: #a8ecff;
+
+  --accent: #ff6b3d;     /* controlled warm accent — CTAs only */
+  --accent-soft: #ffd8c4;
+
+  --muted: #6b6f7d;
+  --muted-2: #9aa0b0;
+  --line: rgba(10, 23, 51, 0.10);
+  --line-strong: rgba(10, 23, 51, 0.22);
+
+  /* ---- Semantic aliases ---- */
+  --bg: var(--ivory);
+  --bg-2: var(--ivory-soft);
+  --bg-dark: var(--ink-navy);
+  --bg-dark-2: var(--ink-navy-2);
+  --fg: var(--ink-navy);
+  --fg-inverse: var(--ivory);
+  --fg-muted: var(--muted);
+  --fg-muted-dark: rgba(246, 241, 230, 0.62);
+  --accent-fg: var(--accent);
+  --brand: var(--cobalt);
+
+  /* ---- Typography ---- */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* fluid type scale */
+  --step--2: clamp(0.78rem, 0.76rem + 0.10vw, 0.84rem);
+  --step--1: clamp(0.88rem, 0.85rem + 0.15vw, 0.95rem);
+  --step-0:  clamp(1.00rem, 0.96rem + 0.20vw, 1.10rem);
+  --step-1:  clamp(1.13rem, 1.07rem + 0.30vw, 1.30rem);
+  --step-2:  clamp(1.27rem, 1.18rem + 0.45vw, 1.55rem);
+  --step-3:  clamp(1.42rem, 1.29rem + 0.65vw, 1.84rem);
+  --step-4:  clamp(1.60rem, 1.40rem + 1.00vw, 2.30rem);
+  --step-5:  clamp(1.84rem, 1.54rem + 1.50vw, 2.88rem);
+  --step-6:  clamp(2.13rem, 1.66rem + 2.30vw, 3.70rem);
+  --step-7:  clamp(2.46rem, 1.75rem + 3.50vw, 4.80rem);
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* ---- Layout ---- */
+  --container-max: 1240px;
+  --container-narrow: 880px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-1: 0 1px 2px rgba(10,23,51,0.06), 0 1px 3px rgba(10,23,51,0.04);
+  --shadow-2: 0 4px 12px rgba(10,23,51,0.08), 0 2px 6px rgba(10,23,51,0.05);
+  --shadow-3: 0 16px 48px rgba(10,23,51,0.12), 0 4px 16px rgba(10,23,51,0.06);
+  --shadow-glow: 0 0 0 4px rgba(31, 76, 255, 0.12);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur: 260ms;
+  --dur-slow: 480ms;
+
+  /* ---- Header ---- */
+  --header-h: 72px;
+
+  color-scheme: light;
+}
+
+/* Dark-section override (when section has .section--dark) */
+.section--dark {
+  --bg: var(--ink-navy);
+  --bg-2: var(--ink-navy-2);
+  --fg: var(--ivory);
+  --fg-muted: var(--fg-muted-dark);
+  --line: rgba(246, 241, 230, 0.12);
+  --line-strong: rgba(246, 241, 230, 0.24);
+}

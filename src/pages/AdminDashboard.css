@@ -1,0 +1,289 @@
+/* =============================================================
+   CHEMAMEER · Admin dashboard styles
+   ============================================================= */
+
+.admin-loading {
+  min-height: 100vh;
+  padding-top: var(--header-h);
+  background: var(--ink-navy);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.admin-dash {
+  min-height: 100vh;
+  background: var(--ivory-soft);
+  /* The site Header is fixed on every route — offset the dashboard so its
+     own bar does not slide underneath it. */
+  padding-top: var(--header-h);
+}
+.admin-dash__bar {
+  background: var(--ink-navy);
+  color: var(--ivory);
+  padding-block: var(--space-3);
+  position: sticky;
+  top: var(--header-h);
+  z-index: 10;
+}
+.admin-dash__bar-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.admin-dash__title { flex: 1; }
+.admin-dash__title h1 { font-size: var(--step-2); margin-top: 2px; color: var(--ivory); }
+.admin-dash__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: rgba(246, 241, 230, 0.8);
+  font-size: var(--step--1);
+}
+.admin-dash__preview {
+  background: rgba(42, 212, 255, 0.18);
+  color: var(--cyan);
+  border-color: rgba(42, 212, 255, 0.4);
+}
+
+.admin-dash__main { padding-block: var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); }
+
+/* Stats */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+.stat-card {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+.stat-card--accent { border-color: var(--cobalt); background: rgba(31, 76, 255, 0.04); }
+.stat-card--warn { border-color: var(--accent); background: rgba(255, 107, 61, 0.06); }
+.stat-card__icon {
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(31, 76, 255, 0.1);
+  color: var(--cobalt);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.stat-card--warn .stat-card__icon { background: rgba(255, 107, 61, 0.12); color: var(--accent); }
+.stat-card__value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--ink-navy);
+}
+.stat-card__label {
+  display: block;
+  font-size: var(--step--2);
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Filters */
+.admin-filters { padding: var(--space-4); }
+.admin-filters__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+.admin-filters__search {
+  flex: 1 1 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 0.8em;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--ivory-soft);
+}
+.admin-filters__search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.7em 0;
+  font-size: var(--step--1);
+}
+.admin-filters__search input:focus { outline: none; }
+.admin-filters .field { display: flex; flex-direction: column; gap: 4px; }
+.admin-filters .field select {
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--ivory-soft);
+  font-size: var(--step--1);
+}
+.admin-filters__error {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255, 107, 61, 0.1);
+  border-radius: var(--radius-sm);
+  color: #b3411c;
+  font-size: var(--step--2);
+}
+
+/* List + detail */
+.admin-list {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+.admin-list__table-wrap { padding: 0; overflow: hidden; overflow-x: auto; }
+.admin-list__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+}
+.admin-list__table thead th {
+  text-align: left;
+  font-weight: 600;
+  font-size: var(--step--2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: var(--space-3) var(--space-4);
+  background: var(--ivory-soft);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.admin-list__table tbody td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  cursor: pointer;
+}
+.admin-list__table tbody tr:hover td { background: rgba(31, 76, 255, 0.03); }
+.admin-list__table tbody tr.is-selected td { background: rgba(31, 76, 255, 0.06); }
+.admin-list__sub {
+  display: block;
+  color: var(--muted);
+  font-size: var(--step--2);
+  margin-top: 2px;
+}
+.admin-list__empty {
+  text-align: center;
+  color: var(--muted);
+  padding-block: var(--space-7) !important;
+}
+.admin-list__retry {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--step--2);
+  color: var(--accent);
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 107, 61, 0.1);
+  border: 1px solid rgba(255, 107, 61, 0.24);
+}
+
+.status-ok { color: #16a34a; }
+
+.status-pill {
+  display: inline-block;
+  padding: 0.25em 0.7em;
+  border-radius: var(--radius-pill);
+  font-size: var(--step--2);
+  font-weight: 500;
+  background: rgba(31, 76, 255, 0.1);
+  color: var(--cobalt-deep);
+}
+.status-pill--new { background: rgba(42, 212, 255, 0.16); color: #0d6e85; }
+.status-pill--pending { background: rgba(245, 158, 11, 0.16); color: #92500a; }
+.status-pill--confirmed { background: rgba(34, 197, 94, 0.16); color: #166534; }
+.status-pill--rescheduled { background: rgba(31, 76, 255, 0.12); color: var(--cobalt-deep); }
+.status-pill--completed { background: rgba(34, 197, 94, 0.18); color: #166534; }
+.status-pill--enrolled { background: rgba(31, 76, 255, 0.22); color: var(--ivory); }
+.status-pill--cancelled { background: rgba(255, 107, 61, 0.16); color: #b3411c; }
+
+/* Detail panel */
+/* Sticks below BOTH the fixed site header (72px) and the admin bar (~64px). */
+.admin-detail { padding: var(--space-5); position: sticky; top: calc(var(--header-h) + var(--space-8)); }
+.admin-detail__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.admin-detail__name { font-size: var(--step-2); margin-top: 4px; }
+
+.admin-detail__dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.admin-detail__dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--line);
+  font-size: var(--step--1);
+}
+.admin-detail__dl dt { color: var(--muted); }
+.admin-detail__dl dd { text-align: right; color: var(--ink-navy); font-weight: 500; }
+.admin-detail__dl a { color: var(--cobalt); }
+.admin-detail__msg dd { white-space: pre-wrap; max-width: 28ch; text-align: right; }
+
+.admin-detail__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+.admin-detail__actions textarea {
+  width: 100%;
+  padding: 0.7em;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  resize: vertical;
+}
+.admin-detail__actions textarea:focus {
+  outline: none;
+  border-color: var(--cobalt);
+  box-shadow: var(--shadow-glow);
+}
+.admin-detail__status-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.admin-detail__status-row select {
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--ivory-soft);
+  font-size: var(--step--1);
+}
+
+@media (max-width: 980px) {
+  .admin-stats { grid-template-columns: repeat(2, 1fr); }
+  .admin-list { grid-template-columns: 1fr; }
+  .admin-detail { position: static; }
+}
+@media (max-width: 540px) {
+  .admin-stats { grid-template-columns: 1fr; }
+  .admin-filters__row { flex-direction: column; align-items: stretch; }
+  .admin-dash__bar-inner { flex-wrap: wrap; }
+}

@@ -1,0 +1,89 @@
+/* =============================================================
+   CHEMAMEER · Reusable animation primitives
+   These are CSS-only fallbacks. GSAP drives the cinematic scenes.
+   ============================================================= */
+
+/* Fade-in entrance (only when GSAP unavailable / reduced-motion) */
+@keyframes chemameer-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes chemameer-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.anim-fade-up {
+  animation: chemameer-fade-up 0.6s var(--ease-out) both;
+}
+.anim-fade-in {
+  animation: chemameer-fade-in 0.6s var(--ease-out) both;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Make sure pinned scroll scenes don't trap the user */
+  .pin-spacer { height: auto !important; }
+  .pinned-section { position: static !important; height: auto !important; }
+}
+
+/* Subtle continuous molecule drift (CSS-only, very cheap) */
+@keyframes molecule-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(2px, -3px) rotate(2deg); }
+}
+.molecule-drift {
+  animation: molecule-drift 8s ease-in-out infinite;
+}
+
+/* Animated underline for nav links */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur) var(--ease-out);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Pulse used on the brand mark in the header */
+@keyframes chemameer-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.brand-pulse { animation: chemameer-pulse 2.4s ease-in-out infinite; }
+
+/* Marquee used in the hero */
+@keyframes chemameer-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: chemameer-marquee 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}

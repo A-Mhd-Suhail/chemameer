@@ -1,0 +1,94 @@
+.courses__head {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  margin-bottom: var(--space-7);
+}
+.courses__icon {
+  width: 56px; height: 56px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: linear-gradient(140deg, var(--cobalt), var(--cyan));
+  color: var(--ivory);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.courses__title { font-size: var(--step-5); margin: 0.2em 0 0.3em; }
+.courses__blurb { color: var(--muted); max-width: 60ch; }
+
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+.courses__grid--school {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  color: var(--ink-navy);
+  transition: transform var(--dur) var(--ease-out),
+              box-shadow var(--dur) var(--ease-out),
+              border-color var(--dur) var(--ease-out);
+}
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+  border-color: rgba(31, 76, 255, 0.3);
+}
+.course-card__eyebrow { color: var(--cobalt-deep); font-size: var(--step--2); }
+.course-card__title { font-size: var(--step-2); margin: 0.2em 0; line-height: 1.1; }
+.course-card__blurb {
+  color: var(--muted);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  flex: 1;
+}
+.course-card__meta {
+  font-size: var(--step--2);
+  color: var(--muted);
+  margin-top: var(--space-2);
+}
+.course-card__highlights {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--step--2);
+  color: var(--fg);
+}
+.course-card__highlights li {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--cobalt);
+}
+.course-card__highlights li svg { flex-shrink: 0; }
+.course-card__cta {
+  margin-top: var(--space-3);
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--cobalt);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+@media (max-width: 980px) {
+  .courses__grid { grid-template-columns: repeat(2, 1fr); }
+  .courses__grid--school { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 680px) {
+  .courses__grid, .courses__grid--school { grid-template-columns: 1fr; }
+  .courses__head { flex-direction: column; gap: var(--space-3); }
+}

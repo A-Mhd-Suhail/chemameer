@@ -1,0 +1,93 @@
+.admin-login {
+  background:
+    radial-gradient(700px 500px at 50% 0%, rgba(31, 76, 255, 0.16), transparent 60%),
+    var(--ink-navy);
+  min-height: 100vh;
+  color: var(--ivory);
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--space-9);
+}
+.admin-login__card {
+  background: rgba(246, 241, 230, 0.04);
+  border: 1px solid rgba(246, 241, 230, 0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-7);
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+}
+.admin-login__brand {
+  text-align: center;
+  margin-bottom: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+.admin-login__title { font-size: var(--step-3); margin: 0.2em 0; }
+.admin-login__hint { color: rgba(246, 241, 230, 0.6); font-size: var(--step--1); }
+
+.admin-login__notice {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(42, 212, 255, 0.08);
+  border: 1px solid rgba(42, 212, 255, 0.24);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  color: var(--cyan);
+  font-size: var(--step--2);
+}
+.admin-login__notice p { color: rgba(246, 241, 230, 0.78); margin-top: 0.2em; }
+.admin-login__notice code {
+  font-family: var(--font-mono);
+  background: rgba(246, 241, 230, 0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.admin-login__error {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 107, 61, 0.1);
+  border: 1px solid rgba(255, 107, 61, 0.32);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  color: #ffb597;
+  align-items: center;
+  font-size: var(--step--1);
+}
+
+.admin-login__form { display: flex; flex-direction: column; gap: var(--space-4); }
+.admin-login__form .field__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: rgba(246, 241, 230, 0.78);
+}
+.admin-login__form input {
+  width: 100%;
+  padding: 0.85em 1em;
+  background: rgba(246, 241, 230, 0.06);
+  border: 1px solid rgba(246, 241, 230, 0.18);
+  border-radius: var(--radius-sm);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  transition: border-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+.admin-login__form input:focus {
+  outline: none;
+  border-color: var(--cobalt-bright);
+  box-shadow: 0 0 0 4px rgba(31, 76, 255, 0.25);
+}
+
+.admin-login__foot {
+  margin-top: var(--space-5);
+  text-align: center;
+  font-size: var(--step--2);
+  color: rgba(246, 241, 230, 0.5);
+}
